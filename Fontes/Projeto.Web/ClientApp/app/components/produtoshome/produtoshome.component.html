@@ -1,0 +1,18 @@
+﻿<menu-vertical></menu-vertical>
+
+
+<h1 class="text-center">Destaques</h1>
+
+<p *ngIf="!produtos"><em>Loading...</em></p>
+
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3" *ngIf="produtos">
+    <section class="row text-center placeholders">
+        <div class="col-6 col-sm-3 placeholder" *ngFor="let produto of produtos">
+            <h4>{{ produto.titulo }}</h4>
+            <img style="cursor:pointer" src="{{ produto.urlFoto }}" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail" (click)="toggle(produto)">
+            <div class="text-muted"> {{ produto.preco }}</div>
+            <a class="btn btn-default" title="{{ produto.titulo }}">Detalhes</a>
+        </div>
+    </section>
+</main>
+

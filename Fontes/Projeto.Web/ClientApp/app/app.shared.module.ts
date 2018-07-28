@@ -1,32 +1,35 @@
-import { NgModule } from '@angular/core';
+﻿import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './components/app/app.component';
-import { NavMenuComponent } from './components/navmenu/navmenu.component';
+import { MenuVerticalComponent } from './components/menuvertical/menuvertical.component';
+import { MenuHorizontalComponent } from './components/menuhorizontal/menuhorizontal.component'
 import { HomeComponent } from './components/home/home.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
+import { ProdutosHome } from './components/produtoshome/produtoshome.component';
 import { CounterComponent } from './components/counter/counter.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavMenuComponent,
+        MenuVerticalComponent,
+        MenuHorizontalComponent,
+        HomeComponent,
+        ProdutosHome,
         CounterComponent,
-        FetchDataComponent,
-        HomeComponent
     ],
     imports: [
         CommonModule,
         HttpModule,
         FormsModule,
+        ReactiveFormsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
+            { path: 'home', component: ProdutosHome },
             { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
+            //{ path: 'vitrine-principal', component: VitrinePrincipal },
             { path: '**', redirectTo: 'home' }
         ])
     ]
